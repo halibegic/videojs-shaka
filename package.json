@@ -1,0 +1,32 @@
+{
+  "name": "videojs-shaka",
+  "version": "1.0.0",
+  "description": "MPEG-DASH playback using Shaka Player",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel -s --minified --compact true src -d dist",
+    "build:watch": "babel -s -w src -d dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halibegic/videojs-shaka.git"
+  },
+  "keywords": [
+    "videojs",
+    "shaka",
+    "mpeg-dash"
+  ],
+  "author": "halibegic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/halibegic/videojs-shaka/issues"
+  },
+  "homepage": "https://github.com/halibegic/videojs-shaka#readme",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "shaka-player": "^2.0.0-beta3",
+    "video.js": "^5.11.6"
+  }
+}
