@@ -10,7 +10,7 @@
     </head>
     <body>
         <video id="my-video" class="video-js" autoplay controls preload="auto" width="640" height="360" data-setup="{}">
-            <source src="https://demo.unified-streaming.com/video/tears-of-steel/tears-of-steel.ism/.mpd" type="application/dash+xml">
+            <source src="https://demo.unified-streaming.com/video/tears-of-steel/tears-of-steel-dash-widevine.ism/.mpd" type="application/dash+xml">
             <p class="vjs-no-js">
                 To view this video please enable JavaScript, and consider upgrading to a web browser that
                 <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
@@ -21,7 +21,14 @@
         <script src="dist/videojs-shaka.js"></script>
         <script type="text/javascript">
             var player = videojs('#my-video', {
-                techOrder: ['Shaka', 'Html5']
+                techOrder: ['Shaka', 'Html5'],
+                shaka: {
+                    drm: {
+                        servers: {
+                            'com.widevine.alpha': 'http://widevine-proxy.appspot.com/proxy'
+                        }
+                    }
+                }
             });
         </script>
     </body>

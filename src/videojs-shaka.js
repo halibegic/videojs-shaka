@@ -28,6 +28,13 @@ class ShakaTech extends Html5 {
             videojs(this.options_.playerId).trigger('error', e);
         });
 
+        if(typeof options.drm != 'undefined') {
+            
+            this.shakaPlayer.configure({
+                drm: options.drm
+            });
+        }
+
         this.shakaPlayer.load(source.src);
     }
 
