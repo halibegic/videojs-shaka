@@ -5,23 +5,33 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>VideoJS Shaka</title>
-        <link href="node_modules/video.js/dist/video-js.min.css" rel="stylesheet">
-        <script src="node_modules/video.js/dist/ie8/videojs-ie8.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.13.0/alt/video-js-cdn.min.css" rel="stylesheet">
+        <style type="text/css">
+            body { background-color: #f6f6f6; }
+            .embed { margin: 0 auto; padding: 30px 15px; max-width: 884px; text-align: center; }
+            .video-js { font-size: 12px; }
+        </style>
     </head>
     <body>
-        <video id="my-video" class="video-js" autoplay controls preload="auto" width="640" height="360" data-setup="{}">
-            <source src="https://demo.unified-streaming.com/video/tears-of-steel/tears-of-steel-dash-widevine.ism/.mpd" type="application/dash+xml">
-            <p class="vjs-no-js">
-                To view this video please enable JavaScript, and consider upgrading to a web browser that
-                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-            </p>
-        </video>
-        <script src="node_modules/video.js/dist/video.min.js"></script>
-        <script src="node_modules/shaka-player/dist/shaka-player.compiled.js"></script>
-        <script src="dist/videojs-shaka.js"></script>
+        <div class="embed">
+            <div class="embed-responsive embed-responsive-16by9">
+                <video id="my-video" class="embed-responsive-item video-js" autoplay controls preload="auto" width="884" height="497">
+                    <source src="https://demo.unified-streaming.com/video/tears-of-steel/tears-of-steel-dash-widevine.ism/.mpd" type="application/dash+xml">
+                    <p class="vjs-no-js">
+                        To view this video please enable JavaScript, and consider upgrading to a web browser that
+                        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                    </p>
+                </video>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.13.0/video.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/2.0.0/shaka-player.compiled.js"></script>
+        <script src="lib/vjs-quality-picker.min.js"></script>
+        <script src="lib/videojs-shaka.js"></script>
         <script type="text/javascript">
             var player = videojs('#my-video', {
-                techOrder: ['Shaka', 'Html5'],
+                techOrder: ['shaka', 'html5'],
                 shaka: {
                     drm: {
                         servers: {
@@ -30,6 +40,7 @@
                     }
                 }
             });
+            player.qualityPickerPlugin();
         </script>
     </body>
 </html>
